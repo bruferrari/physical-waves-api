@@ -33,63 +33,10 @@ public class AnimationsDAO implements Serializable {
 	
 	public byte[] findAnimationAsByte(Long animationId, Long contentId) {
 		byte[] result = this.jdbcTemplate.queryForObject(AnimationsSqlConstants.RETURN_UNIQUE_ANIMATION_BY_ID, 
-				new Object[]{animationId, contentId}, byte[].class);
+				new Object[]{contentId, animationId}, byte[].class);
 		
 		return result;
 	}
-	
-//	public byte[] findAnimationAsByte(Long animationId, Long contentId) {
-//		byte[] animationAsBytes = {};
-//		try {
-//			Connection conn = DBConnection.getConnection();
-//			
-//			PreparedStatement ppStm = conn.prepareStatement(AnimationsSqlConstants.RETURN_UNIQUE_ANIMATION_BY_ID);
-//			ppStm.setLong(1, contentId);
-//			ppStm.setLong(2, animationId);
-//			
-//			ResultSet result = ppStm.executeQuery();
-//			
-//			while(result.next()) {
-//				Blob blob = result.getBlob("animation");
-//				int blobLenght = (int) blob.length();
-//				animationAsBytes = blob.getBytes(1, blobLenght);
-//				//libera memória
-//				blob.free();
-//			}
-//			
-//			conn.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return animationAsBytes;
-//	}
-	
-//	public List<Animation> listAnimationsOnDatabase() {
-//		List<Animation> animations = new ArrayList<>();
-//		
-//		try {
-//			Connection conn = DBConnection.getConnection();
-//			PreparedStatement ppStm = conn.prepareStatement(AnimationsSqlConstants.RETURN_LIST_OF_ALL_ANIMATIONS);
-//			
-//			ResultSet rSet = ppStm.executeQuery();
-//			
-//			while(rSet.next()) {
-//				Content content = new Content();
-//				content.setId(rSet.getLong("content_id"));
-//				
-//				Animation animation = new Animation();
-//				animation.setId(rSet.getLong("id"));
-//				animation.setDescription(rSet.getString("description"));
-//				animation.setContent(content);
-//				
-//				animations.add(animation);
-//			}
-//			conn.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return animations;
-//	}
 	
 	public List<Animation> listAnimations() {
 		List<Animation> result = new ArrayList<>();

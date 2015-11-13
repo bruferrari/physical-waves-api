@@ -52,7 +52,7 @@ public class ImagesDAO {
 	
 	public byte[] findImageAsByte(Long imageId, Long contentId) {
 		byte[] result = this.jdbcTemplate.queryForObject(ImagesSqlConstants.RETURN_UNIQUE_IMAGE_BY_ID,
-				new Object[]{imageId, contentId}, byte[].class);
+				new Object[]{contentId, imageId}, byte[].class);
 		
 		return result;
 	}

@@ -29,31 +29,6 @@ public class AnswerDAO {
 	
 	private JdbcTemplate jdbcTemplate;
 	private DataSource dataSource = new DataSourceFactory().getDataSource();
-
-//	public List<Answer> allAnswers(Long idContent) {
-//		List<Answer> answers = new ArrayList<Answer>();
-//		try {
-//			Connection con = DBConnection.getConnection();
-//
-//			PreparedStatement ppStm = con
-//					.prepareStatement(AnswerSqlConstants.RETURN_LIST_ANSWER);
-//			ppStm.setLong(1, idContent);
-//
-//			ResultSet resultSet = ppStm.executeQuery();
-//
-//			while (resultSet.next()) {
-//				Answer a = new Answer();
-//				a.setAnswer(resultSet.getString("answer"));
-//				a.setContentId(resultSet.getLong("id_content"));
-//				a.setQuestionId(resultSet.getLong("id_question"));
-//				answers.add(a);
-//			}
-//			con.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return answers;
-//	}
 	
 	public AnswerDAO() {
 		jdbcTemplate = new JdbcTemplate(dataSource);
