@@ -8,7 +8,7 @@ public class DataSourceFactory {
 
 	private static final String MYSQL_JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	private static final String DB_TEST = "physics_db_test";
-	private static final String URL = "jdbc:mysql://ec2-52-23-232-114.compute-1.amazonaws.com:3306/" + DB_TEST;
+	private static final String URL = "jdbc:mysql://localhost:3306/" + DB_TEST;
 
 	private static final String USER = "admin";
 	private static final String PASS = "appfisica2015!";
